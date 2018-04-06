@@ -1,0 +1,37 @@
+﻿@model EjerciciosPropuestos1_Ticona.Models.ClsEjercicio03
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ejercicio-03</title>
+    <link href="~/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h2><b>Ejercicio 03</b></h2>
+        <br />
+        @using (Html.BeginForm("Index", "Ejercicio03", FormMethod.Post))
+        {
+            <p>
+                Números aleatorios
+            </p>
+
+            if (Session["i"] == null)
+            {
+                Session["i"] = 1;
+                <h3>? - ? - ?</h3>
+            }
+            else
+            {
+                <h3>@Model.numero1 - @Model.numero2 - @Model.numero3</h3>
+            }
+            <input type="submit" value="Calcular" />
+        }
+        <br />
+        @Model.resultado;
+    </div>
+</body>
+</html>

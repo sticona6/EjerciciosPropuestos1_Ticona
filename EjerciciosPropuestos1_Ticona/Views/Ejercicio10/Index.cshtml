@@ -1,0 +1,50 @@
+﻿@model EjerciciosPropuestos1_Ticona.Models.ClsEjercicio10
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ejercicio-10</title>
+    <link href="~/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h2><b>Ejercicio 10</b></h2>
+    <br />
+    <div>
+    @using (Html.BeginForm("Index", "Ejercicio10", FormMethod.Post))
+    {
+        <p>
+            @Html.LabelFor(model => model.Articulo, "Ingrese el Articulo:")
+            @Html.EditorFor(model => model.Articulo)<br />
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Cantidad, "Ingrese Cantidad:")
+            @Html.EditorFor(model => model.Cantidad)<br />
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Precio, "Ingrese el Precio:")
+            @Html.EditorFor(model => model.Precio)<br />
+        </p>
+        <input type="submit" value="Calcular" />
+        <br />
+        <br />
+        <table class="table" >
+                <tr>
+                    <th>Articulo</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                </tr>
+                    <tr>
+                        <td>@Model.Articulo</td>
+                        <td>@Model.Cantidad</td>
+                        <td>@Model.Precio</td>
+                        <td>@Model.Total</td>
+                    </tr>
+            </table>
+    }
+</div>
+</body>
+</html>

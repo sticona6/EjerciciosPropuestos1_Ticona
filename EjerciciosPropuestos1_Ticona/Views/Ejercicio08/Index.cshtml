@@ -1,0 +1,54 @@
+﻿@model EjerciciosPropuestos1_Ticona.Models.ClsEjercicio08
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ejercicio-08</title>
+    <link href="~/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h2><b>Ejercicio 08</b></h2>
+        <br />
+        @using (Html.BeginForm("Index", "Ejercicio08", FormMethod.Post))
+        {
+            <p>
+                @Html.LabelFor(model => model.numero, "Ingrese número:")
+                @Html.EditorFor(model => model.numero)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.simbolo, "Ingrese el Símbolo:")
+                @Html.EditorFor(model => model.simbolo)
+            </p>
+            <p>
+                @Html.RadioButtonFor(model => model.lugar, "D", false) Derecha
+                @Html.RadioButtonFor(model => model.lugar, "C", true) Centro
+                @Html.RadioButtonFor(model => model.lugar, "I", false) Izquierda
+            </p>
+            
+            <input type="submit" value="calcular" />
+
+            for (var lactual = 1; lactual <= Model.numero; lactual++)
+            {
+
+                for (var esp = 0; esp < Model.numero - lactual; esp++)
+                {
+                    <b>&nbsp;</b>
+                }
+                for (var aster = 0; aster < (aster * 2) - 1; aster++)
+                {
+                    <b>@Model.simbolo;</b>
+                }
+                <br />
+            }
+        }
+    </div>
+    
+    <br />
+    @Model.numero
+    - @Model.simbolo
+</body>
+</html>

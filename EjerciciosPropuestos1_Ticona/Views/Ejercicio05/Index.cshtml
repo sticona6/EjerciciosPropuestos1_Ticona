@@ -1,0 +1,36 @@
+﻿@model EjerciciosPropuestos1_Ticona.Models.ClsEjercicio05
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ejercicio-05</title>
+    <link href="~/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h2><b>Ejercicio 05</b></h2>
+        <br />
+        @using (Html.BeginForm("Ejercicio05", "Ejercicio05", FormMethod.Post))
+        {
+            <p>
+                @Html.LabelFor(model => model.numero, "Ingrese Soles")
+                @Html.EditorFor(model => model.numero)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.tipo, "Tipo")
+                @Html.DropDownListFor(model => model.tipo, new List<SelectListItem>
+           {
+               new SelectListItem() { Text = "Euro", Value="E" },
+               new SelectListItem() { Text = "Yen Japonés", Value = "Y" },
+               new SelectListItem() { Text = "Dólares Americano", Value = "D" },
+               new SelectListItem() { Text = "Peso Chileno", Value="P" }
+           })
+            </p>
+            <input type="submit" value="Calcular" />
+        }
+    </div>
+</body>
+</html>

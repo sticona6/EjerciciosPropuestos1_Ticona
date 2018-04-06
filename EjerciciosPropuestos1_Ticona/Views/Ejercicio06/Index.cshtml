@@ -1,0 +1,66 @@
+﻿@model EjerciciosPropuestos1_Ticona.Models.ClsEjercicio06
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ejercicio-06</title>
+    <link href="~/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h2><b>Ejercicio 06</b></h2>
+        <br />
+
+        @using (Html.BeginForm("Index", "Ejercicio06", FormMethod.Post))
+        {
+            <p>
+                @Html.LabelFor(model => model.numero, "Ingrese número de hijos:")
+                @Html.EditorFor(model => model.numero)
+            </p>
+            <p>
+                @Html.CheckBoxFor(model => model.estado, "---") Es viuda
+            </p>
+            <input type="submit" value="calcular" />
+        }
+    </div>
+    <div>
+        <br />
+        
+        @if (Model.numero == 2 || Model.numero == 1)
+        {
+            Model.respuesta = 70.00;
+            if (Model.estado == true)
+            {
+                Model.respuesta = Model.respuesta + 20.00;
+            }
+        }
+        else if (@Model.numero >= 3 && Model.numero <= 5)
+        {
+            Model.respuesta = 90.00;
+            if (Model.estado == true)
+            {
+                Model.respuesta = Model.respuesta + 20.00;
+            }
+        }
+        else if (Model.numero >= 6)
+        {
+            Model.respuesta = 120.00;
+            if (Model.numero <= 18 && Model.estado == true)
+            {
+                Model.respuesta = Model.respuesta + (Model.numero * 10.00) + 20.00;
+            }
+            else if (Model.numero <= 18)
+            {
+                Model.respuesta = Model.respuesta + (Model.numero * 10.00);
+            }
+        }
+        <br />
+        <h3>
+            El Subsidio es de S/. @Model.respuesta
+        </h3>
+    </div>
+</body>
+</html>

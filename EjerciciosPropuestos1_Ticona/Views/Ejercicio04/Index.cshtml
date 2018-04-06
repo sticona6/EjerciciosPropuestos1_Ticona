@@ -1,0 +1,46 @@
+﻿@model EjerciciosPropuestos1_Ticona.Models.ClsEjercicio04
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ejercicio-04</title>
+    <link href="~/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h2><b>Ejercicio 04</b></h2>
+        <br />
+        @using (Html.BeginForm("Index", "Ejercicio04", FormMethod.Post))
+        {
+            <button>Jugar de Nuevo</button>
+            if (Session["i"] == null)
+            {
+                Session["i"] = 1;
+                <h3>? - ? - ?</h3>
+            }
+            else
+            {
+                int cont = Convert.ToInt32(Session["i"]);
+                cont++;
+                Session["i"] = cont;
+
+                string n1, n2, n3;
+                n1 = Convert.ToString("figura0" + Model.numero1 + ".jpg");
+                n2 = Convert.ToString("figura0" + Model.numero2 + ".jpg");
+                n3 = Convert.ToString("figura0" + Model.numero3 + ".jpg");
+                <br />
+                <br />
+                <img src="~/assets/img/@n1" width="50" height="50" alt="img" />
+                <img src="~/assets/img/@n2" width="50" height="50" alt="img" />
+                <img src="~/assets/img/@n3" width="50" height="50" alt="img" />
+            }
+        }
+        <br />
+        @Model.resultado;
+    </div>
+</body>
+</html>

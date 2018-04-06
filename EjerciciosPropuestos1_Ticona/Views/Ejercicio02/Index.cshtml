@@ -1,0 +1,66 @@
+﻿@model EjerciciosPropuestos1_Ticona.Models.ClsEjercicio02
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ejercicio 02</title>
+    <link href="~/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div>
+            <h2><b>Ejercicio 02</b></h2>
+            <br />
+            @using (Html.BeginForm("Ejercicio02", "Ejercicio02", FormMethod.Post))
+            {
+                <p>
+                    @Html.Label("Ingrese Numero 1")
+                    @Html.EditorFor(model => model.numero[0])
+                </p>
+                <p>
+                    @Html.Label("Ingrese Numero 2")
+                    @Html.EditorFor(model => model.numero[1])
+                </p>
+                <p>
+                    @Html.Label("Ingrese Numero 3")
+                    @Html.EditorFor(model => model.numero[2])
+                </p>
+                <p>
+                    @Html.Label("Ingrese Numero 4")
+                    @Html.EditorFor(model => model.numero[3])
+                </p>
+                <p>
+                    @Html.Label("Ingrese Numero 5")
+                    @Html.EditorFor(model => model.numero[4])
+                </p>
+                <p>
+                    @Html.Label("Ingrese Numero 6")
+                    @Html.EditorFor(model => model.numero[5])
+                </p>
+                <p>
+                    @Html.Label("Ingrese Numero 7")
+                    @Html.EditorFor(model => model.numero[6])
+                </p>
+                <p>
+                    @Html.Label("Ingrese Numero 8")
+                    @Html.EditorFor(model => model.numero[7])
+                </p>
+                <p>
+                    @Html.Label("Ingrese Numero 9")
+                    @Html.EditorFor(model => model.numero[8])
+                </p>
+                <p>
+                    @Html.Label("Ingrese Numero 10")
+                    @Html.EditorFor(model => model.numero[9])
+                </p>
+
+                <input type="submit" value="Calcular" />
+            }
+        </div>
+    </div>
+</body>
+</html>

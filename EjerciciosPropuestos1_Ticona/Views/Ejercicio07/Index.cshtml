@@ -1,0 +1,43 @@
+﻿@model EjerciciosPropuestos1_Ticona.Models.ClsEjercicio07
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ejercicio-07</title>
+    <link href="~/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h2><b>Ejercicio 06</b></h2>
+        <br />
+        @using (Html.BeginForm("Ejercicio07", "Ejercicio07", FormMethod.Post))
+        {
+            <p>
+                @Html.LabelFor(model => model.Combo, "Combo")
+                @Html.DropDownListFor(model => model.Combo, new List<SelectListItem>
+           {
+               new SelectListItem() { Text = "Combo 1 que cuesta S/. 11", Value = "C1" },
+               new SelectListItem() { Text = "Combo 2 que cuesta S/. 13", Value = "C2" },
+               new SelectListItem() { Text = "Combo 3 que cuesta S/. 15", Value = "C3" },
+               new SelectListItem() { Text = "Combo 4 que cuesta S/. 17", Value = "C4" }
+           })
+            </p>
+            <br />
+            <p>
+                @Html.RadioButtonFor(model => model.Gaseosa, "Gm",false) Gaseosa mediana + S/. 2
+                @Html.RadioButtonFor(model => model.Gaseosa, "Gg", new { Checked = "checked" }) Gaseosa grande + S/. 4
+            </p>
+            <br />
+            <p>
+                @Html.RadioButtonFor(model => model.Papas, "Pm", new { Checked = "checked" }) Papas mediana + S/ 1.5 
+                @Html.RadioButtonFor(model => model.Papas, "Pg", false) Division + S/ 3
+            </p>
+            <input type="submit" value="Calcular" />
+        }
+
+    </div>
+</body>
+</html>

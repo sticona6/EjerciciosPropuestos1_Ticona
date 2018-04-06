@@ -1,0 +1,35 @@
+﻿@model EjerciciosPropuestos1_Ticona.Models.ClsEjercicio01
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ejercicio-01</title>
+    <link href="~/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+    <h2><b>Ejercicio 01</b></h2>
+    <br />
+    @using (Html.BeginForm("Index", "Ejercicio01", FormMethod.Post))
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            if (Model.condicion[i].Equals("aprobado"))
+            {
+                <p style="color:blue;">@Model.nota[i]  -  @Model.condicion[i]</p>
+            }
+            else if(Model.condicion[i].Equals("desaprobado"))
+            {
+                <p style="color:red;">@Model.nota[i]  -  @Model.condicion[i]</p>
+            }
+
+        }
+
+        <input type="submit" value="Generar" />
+    }
+    </div>
+</body>
+</html>
